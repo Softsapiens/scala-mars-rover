@@ -41,9 +41,11 @@ class MarsRover extends Actor with ActorLogging {
   private def internalReceive:Receive = {
     case Subscribe =>
       subscribers = sender :: subscribers
-    case Tick if running =>
-      position = position + 1
-      subscribers.foreach(s => s ! position)
+    case Tick =>
+      if (running){
+        position = position + 1
+        subscribers.foreach(s => s ! position)
+      }
     case SelfDestruct => context.stop(self)
   }
 
