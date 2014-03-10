@@ -1,4 +1,4 @@
-name := """akka-sample-main-scala"""
+name := """scala-akka-mars-rover"""
 
 version := "1.0"
 
